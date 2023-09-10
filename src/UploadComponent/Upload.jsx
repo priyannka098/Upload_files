@@ -10,6 +10,10 @@ const Upload =()=>{
          <span className="text-sm text-[#929ebf]">Upload documents you want to share</span>
          <span className=" flex justify-center items-center text-sm text-[#929ebf]"> with your team.</span>
           </p>
+        </div>
+
+    
+         <div className="h-[40%] w-[80%] border-dashed border-2 border-indigo-600"> 
 
         </div>
         </div>
