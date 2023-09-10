@@ -13,12 +13,13 @@ const Upload =()=>{
           </p>
           </div>
         
-         <div className="  h-[50%] w-[80%] border-dashed  border-2 border-slate-500/50 rounded-lg m-[20px] bg-[#f6f9ff]">
+         <div className="  h-[50%] w-[80%] border-dashed  border-2 border-slate-500/50 rounded-lg  m-[20px] bg-[#f6f9ff]">
             <div className="">
-                <img  className=" h-[60px] w-[100px]"src={uploadicon} alt="cloud-upload-icon"></img>
-                <p> Drag & Drop your files here</p>
-                <p> OR</p>
-                <button> Browse Files</button>
+                <img  className=" h-[60px] w-[120px]"src={uploadicon} alt="cloud-upload-icon"></img>
+                <p className="text-slate-400  font-medium text-[14px] font-sans"> Drag & Drop your files here</p>
+                <p className="text-[#929ebf] font-semibold text-[15px] font-sans"> OR</p>
+                {/* <button className="h-[50px] w-[30px] bg-[#587c6] text-white rounded">Browse Files</button> */}
+                <button className=" w-[130px] bg-[#0867d2] text-white p-1 rounded-md  text-base">Browse Files</button>
             </div>
         
          </div>
