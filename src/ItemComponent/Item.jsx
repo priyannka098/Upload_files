@@ -59,7 +59,7 @@ const Item =(props)=>{
 
     return(
         <>
-            <div  className="h-[50px] w-[85%] bg-white flex justify-between items-center p-2 ">
+            <div  className="h-[50px] w-[85%] bg-white flex justify-between items-center p-2 hover:drop-shadow-2xl rounded-lg">
               <div className="w-[12%] h-[30px] bg-black text-white text-sm">
                 {fileType}
               </div>
@@ -70,7 +70,7 @@ const Item =(props)=>{
                 </div>
                 {!hasFailed && !uploaded && <progress className="progress progress-primary h-1 lg:w-48 md:w-36 sm:24" value={percent} max="100"></progress>}
                 {hasFailed && <span className="text-[10px] text-red-500">Failed</span>}
-                {uploaded && !hasFailed && <a href={downloadURL} className="text-[10px] text-cyan-600">Download</a>}
+                {uploaded && !hasFailed && <a href={downloadURL} className="text-[10px] w-16 text-cyan-600">Download</a>}
               </div>
                 <div className="w-[12%] h-full flex justify-end items-center text-green-500">
               {!uploaded && !hasFailed && <button className="bg-zinc-300 hover:bg-zinc-400 rounded-full h-4 w-4 flex justify-center items-center p-0">
