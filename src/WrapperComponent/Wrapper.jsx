@@ -9,7 +9,7 @@ const Wrapper =()=>{
 
  return(
     <>
-    <div className="h-screen w-screen bg-[#69779b] flex flex-col justify-center items-center">
+    <div className="h-screen w-screen bg-[#5874c6] flex flex-col justify-center items-center">
     <DataContext.Provider value={{files,setFiles}}> 
     <Upload/>
     <Files/>

@@ -73,7 +73,8 @@ const Item =(props)=>{
               </div>
               <div className=" w-[65%] flex flex-col">
                 <div className="flex justify-between mb-[2px]">
-                <span className=" text-[11px]">{props.file.name}</span>
+                <span className=" text-[11px] truncate">{props.file.name}</span>
+
                 {!uploaded && !deleted && <span className=" text-[11px]">{percent + "%"}</span>}
                 </div>
                 {!hasFailed && !uploaded && !deleted && <progress className="progress progress-primary h-1 lg:w-48 md:w-36 sm:24" value={percent} max="100"></progress>}
