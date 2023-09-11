@@ -79,7 +79,7 @@ const Item =(props)=>{
                 </div>
                 {!hasFailed && !uploaded && !deleted && <progress className="progress progress-primary h-1 lg:w-48 md:w-36 sm:24" value={percent} max="100"></progress>}
                 {hasFailed && <span className="text-[10px] text-red-500">Failed</span>}
-                {uploaded && !hasFailed && <a href={downloadURL} className="text-[10px] w-16 text-cyan-600">Download</a>}
+                {uploaded && !hasFailed && <a href={downloadURL} target="_blank" className="text-[10px] w-16 text-cyan-600">Download</a>}
 
                 {deleted && <span className="text-[10px] w-16 text-rose-600">Deleted</span>}
               </div>
