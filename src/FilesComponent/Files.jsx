@@ -9,7 +9,7 @@ const Files =()=>{
 
     return(
         <>
-        <div className="bg-white  w-[50%] md:w-[30%] max-h-[35%] rounded-b-md px-2  ">
+        <div className="bg-white  w-[70%] md:w-[40%] max-h-[35%] rounded-b-md px-2  ">
         {files.length>0 &&<div className="h-full overflow-auto flex flex-col items-center pb-4">
            { files.map((value,index) =>{
                return <Item file={value}/>

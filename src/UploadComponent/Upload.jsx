@@ -49,7 +49,7 @@ const drop = useRef(null);
 
     return(
         <>
-        <div className=" w-[50%] md:w-[30%] bg-[white] pt-4 rounded-md flex justify-center items-center flex-col">
+        <div className=" w-[70%] md:w-[40%] bg-[white] pt-4 rounded-md flex justify-center items-center flex-col">
         <div className="flex justify-center items-center flex-col">
           <span className="flex justify-center items-center font-semibold text-[12px] md:text-[16px] text-[#69779b] mb-[2px]">UPLOAD FILES
           </span>
@@ -57,7 +57,7 @@ const drop = useRef(null);
         
         </div>
         
-         <div ref={drop} className="w-[80%] border-dashed p-4  border-2 border-slate-500/50 rounded-lg  m-[20px] bg-[#f6f9ff]">
+         <div ref={drop} className="w-[80%] h-[200px] border-dashed p-4 mb-8 border-2 border-slate-500/50 rounded-lg  m-[20px] bg-[#f6f9ff] flex justify-center items-center ">
             <div className="flex justify-center items-center flex-col">
                 <img  className=" h-[40px] w-[80px]"src={uploadicon} alt="cloud-upload-icon"></img>
                 <p className="text-slate-400  font-medium text-[12px] font-sans text-center"> Drag & Drop your files here</p>
@@ -67,15 +67,10 @@ const drop = useRef(null);
                     <button onClick={uploadClick} className=" w-[110px] bg-[#0867d2] text-white p-1 text-[11px] rounded-md btn btn-xs mt-2 ">Browse Files</button>
                 
                 <input type="file" id="fileUpload" className="hidden" multiple onChange={handleFiles} ref={hiddenFileInput}/>
-               
+              
             </div>
          </div>
-      
-        
-
         </div>
-    
-    
         </>
 
     )    
