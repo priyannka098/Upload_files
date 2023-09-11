@@ -2,19 +2,55 @@ import React from "react";
 import uploadicon from "../Images/uploadicon.svg";
 import Item from "../ItemComponent/Item";
 import { useState } from "react";
+import { useContext } from "react";
+import { DataContext } from "../Context";
+import { useRef } from "react";
 
 const Upload =()=>{
 
-    const[files, setFiles] = useState([]);
+const{files,setFiles}=useContext(DataContext);
+
+const hiddenFileInput = useRef(null);
+const drop = useRef(null);
 
     const handleFiles = (e) => {
         console.log(e.target.files);
-        setFiles(e.target.files);
+        setFiles([...e.target.files]);
     }
+
+    const uploadClick = (e) => {
+       hiddenFileInput.current.click();
+    }
+
+    React.useEffect(() => {
+        drop.current.addEventListener('dragover', handleDragOver);
+        drop.current.addEventListener('drop', handleDrop);
+      
+        return () => {
+          drop.current.removeEventListener('dragover', handleDragOver);
+          drop.current.removeEventListener('drop', handleDrop);
+        };
+      }, []);
+      
+      const handleDragOver = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      };
+      
+      const handleDrop = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const {files} = e.dataTransfer;
+
+        if (files && files.length) {
+            setFiles([...files]);
+        }
+      };
 
     return(
         <>
-        <div className="w-[30%] bg-[white] py-4 rounded-md flex justify-center items-center flex-col">
+        <div className="w-[30%] bg-[white] pt-4 rounded-t-md flex justify-center items-center flex-col">
         <div className="flex justify-center items-center flex-col">
           <span className="flex justify-center items-center font-semibold text-[16px] text-[#69779b] mb-[2px]">UPLOAD FILES
           </span>
@@ -22,16 +58,16 @@ const Upload =()=>{
         
         </div>
         
-         <div className="w-[80%] border-dashed p-4  border-2 border-slate-500/50 rounded-lg  m-[20px] bg-[#f6f9ff]">
+         <div ref={drop} className="w-[80%] border-dashed p-4  border-2 border-slate-500/50 rounded-lg  m-[20px] bg-[#f6f9ff]">
             <div className="flex justify-center items-center flex-col">
                 <img  className=" h-[40px] w-[80px]"src={uploadicon} alt="cloud-upload-icon"></img>
                 <p className="text-slate-400  font-medium text-[12px] font-sans"> Drag & Drop your files here</p>
                 <p className="text-[#929ebf] font-semibold text-[12px] font-sans"> OR</p>
                 {/* <button className="h-[50px] w-[30px] bg-[#587c6] text-white rounded">Browse Files</button> */}
-                <label htmlFor="fileUpload">
-                    <button className=" w-[110px] bg-[#0867d2] text-white p-1 text-[11px] rounded-md btn btn-xs mt-2 ">Browse Files</button>
-                </label>
-                <input type="file" id="fileUpload" multiple onChange={handleFiles} style={{"display":"none"}}/>
+            
+                    <button onClick={uploadClick} className=" w-[110px] bg-[#0867d2] text-white p-1 text-[11px] rounded-md btn btn-xs mt-2 ">Browse Files</button>
+                
+                <input type="file" id="fileUpload" className="hidden" multiple onChange={handleFiles} ref={hiddenFileInput}/>
                
             </div>
          </div>
